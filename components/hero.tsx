@@ -2,13 +2,13 @@ import { KeyRound, Shield, ShieldAlert, ArrowRight } from "lucide-react"
 
 export function Hero() {
   return (
-    <section className="relative min-h-screen overflow-hidden bg-background pt-20">
+    <section className="relative min-h-screen overflow-hidden pt-20">
       {/* Static texture background */}
       <div className="pointer-events-none absolute inset-0 z-0">
         <img
           src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=2070&auto=format&fit=crop"
           alt="Secure Server Background"
-          className="h-full w-full object-cover opacity-35 mix-blend-luminosity"
+          className="h-full w-full object-cover opacity-28 mix-blend-luminosity"
         />
       </div>
 
@@ -17,7 +17,7 @@ export function Hero() {
         className="pointer-events-none absolute inset-0 z-10"
         style={{
           background:
-            "linear-gradient(135deg, rgba(6,9,15,0.95) 0%, rgba(11,15,25,0.85) 50%, rgba(6,9,15,0.98) 100%)",
+            "linear-gradient(135deg, rgba(5,5,5,0.8) 0%, rgba(6,12,22,0.68) 50%, rgba(5,5,5,0.86) 100%)",
         }}
       />
 
@@ -28,15 +28,15 @@ export function Hero() {
         <main className="flex flex-1 flex-col items-center justify-between gap-16 pb-20 pt-10 lg:flex-row">
           {/* LEFT COLUMN */}
           <div className="w-full pt-10 lg:w-[50%]">
-            <div className="hero-enter mb-8 inline-flex items-center gap-2 rounded-md border border-blue-500/20 bg-blue-500/10 px-3 py-1 text-xs font-semibold tracking-wider text-blue-400 uppercase [animation-delay:120ms]">
-              <span className="h-1.5 w-1.5 rounded-full bg-blue-500" />
+            <div className="hero-enter mb-8 inline-flex items-center gap-2 rounded-md border border-brand-primary/25 bg-brand-primary/10 px-3 py-1 text-xs font-semibold tracking-wider text-brand-primary uppercase [animation-delay:120ms]">
+              <span className="h-1.5 w-1.5 rounded-full bg-brand-primary" />
               Elite Digital Recovery
             </div>
 
             <h1 className="hero-enter mb-6 font-serif text-5xl leading-[1.05] font-bold tracking-tight text-white lg:text-7xl [animation-delay:220ms]">
               Digital Asset <br />
               Recovery <br />
-              <span className="text-blue-500">Without Exposure.</span>
+              <span className="hero-title-glow">Without Exposure.</span>
             </h1>
 
             <p className="hero-enter mb-10 max-w-md text-lg leading-relaxed text-gray-400 [animation-delay:320ms]">
@@ -48,7 +48,7 @@ export function Hero() {
             <div className="hero-enter flex flex-wrap items-center gap-4 [animation-delay:420ms]">
               <a
                 href="#case-inquiry"
-                className="group inline-flex items-center gap-2 rounded-lg bg-brand-primary px-6 py-3 font-medium text-white transition-colors hover:bg-blue-600"
+                className="group inline-flex items-center gap-2 rounded-lg bg-brand-primary px-6 py-3 font-medium text-slate-950 transition-colors hover:bg-brand-dark focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary/45 active:translate-y-px"
               >
                 Contact Team
                 <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
@@ -103,8 +103,8 @@ export function Hero() {
               style={{ animation: "float-2 8s ease-in-out infinite 1.2s" }}
             >
               <div className="rounded-xl border border-glass-border bg-glass p-6 shadow-2xl backdrop-blur-xl transition-colors hover:border-gray-500/30">
-                <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-lg border border-blue-700/50 bg-blue-900/50">
-                  <Shield className="h-5 w-5 text-blue-400" />
+                <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-lg border border-brand-primary/35 bg-brand-primary/10">
+                  <Shield className="h-5 w-5 text-brand-primary" />
                 </div>
                 <h3 className="mb-1 text-xl font-semibold text-white">Asset Tracking</h3>
                 <p className="text-sm leading-relaxed text-gray-400">

@@ -9,38 +9,38 @@ html {
 @custom-variant dark (&:is(.dark *));
 
 :root {
-  --background: #0B1020;
+  --background: #050505;
   --foreground: #F8FAFC;
-  --card: #121A2F;
+  --card: #0D1220;
   --card-foreground: #F8FAFC;
   --popover: #121A2F;
   --popover-foreground: #F8FAFC;
   --primary: #3B82F6;
   --primary-foreground: #F8FAFC;
-  --secondary: #121A2F;
+  --secondary: #0D1220;
   --secondary-foreground: #F8FAFC;
-  --muted: #243150;
+  --muted: #1C2335;
   --muted-foreground: #94A3B8;
-  --accent: #22D3EE;
+  --accent: #00F0FF;
   --accent-foreground: #0B1020;
   --destructive: #EF4444;
   --destructive-foreground: #FEE2E2;
-  --border: #243150;
-  --input: #243150;
+  --border: #1E273D;
+  --input: #1E273D;
   --ring: #3B82F6;
   --chart-1: #3B82F6;
-  --chart-2: #22D3EE;
-  --chart-3: #A78BFA;
+  --chart-2: #00F0FF;
+  --chart-3: #FFD700;
   --chart-4: #60A5FA;
-  --chart-5: #F472B6;
+  --chart-5: #8A2BE2;
   --radius: 0.75rem;
   --brand-primary: #3B82F6;
-  --brand-light: #22D3EE;
+  --brand-light: #00F0FF;
   --brand-dark: #1D4ED8;
   --neon-blue: #60A5FA;
   --neon-blue-light: #93C5FD;
-  --glass: rgba(18, 26, 47, 0.56);
-  --glass-border: rgba(148, 163, 184, 0.2);
+  --glass: rgba(255, 255, 255, 0.03);
+  --glass-border: rgba(255, 255, 255, 0.08);
 }
 
 @theme inline {
@@ -93,24 +93,27 @@ html {
     @apply bg-background text-foreground;
     position: relative;
     overflow-x: hidden;
-    background-image:
-      radial-gradient(circle at 10% 20%, rgba(59, 130, 246, 0.18), transparent 34%),
-      radial-gradient(circle at 85% 18%, rgba(34, 211, 238, 0.16), transparent 32%),
-      radial-gradient(circle at 72% 78%, rgba(167, 139, 250, 0.12), transparent 30%),
-      linear-gradient(140deg, #06090f 0%, #0b1020 45%, #101a34 100%);
-    background-size: 180% 180%;
-    animation: page-gradient-shift 36s ease-in-out infinite;
+    background: #050505;
   }
 }
 
 @layer utilities {
-  .page-gradient-motion {
-    background:
-      radial-gradient(circle at 16% 22%, rgba(59, 130, 246, 0.22), transparent 38%),
-      radial-gradient(circle at 82% 28%, rgba(34, 211, 238, 0.2), transparent 40%),
-      radial-gradient(circle at 52% 78%, rgba(167, 139, 250, 0.16), transparent 38%);
-    animation: gradient-orbit 24s ease-in-out infinite;
-    transform-origin: center;
+  .ambient-orb-cyan {
+    width: min(68vw, 680px);
+    height: min(68vw, 680px);
+    border-radius: 9999px;
+    background: radial-gradient(circle, rgba(0, 240, 255, 0.18) 0%, rgba(0, 0, 0, 0) 70%);
+    animation: orb-drift-cyan 18s ease-in-out infinite, orb-pulse 9s ease-in-out infinite alternate;
+    filter: blur(2px);
+  }
+
+  .ambient-orb-gold {
+    width: min(56vw, 560px);
+    height: min(56vw, 560px);
+    border-radius: 9999px;
+    background: radial-gradient(circle, rgba(255, 215, 0, 0.14) 0%, rgba(0, 0, 0, 0) 70%);
+    animation: orb-drift-gold 22s ease-in-out infinite, orb-pulse 11s ease-in-out infinite alternate-reverse;
+    filter: blur(2px);
   }
 
   .hero-aurora {
@@ -131,9 +134,9 @@ html {
   }
 
   .hero-title-glow {
-    background-image: linear-gradient(110deg, #60A5FA, #BFDBFE, #FFFFFF, #93C5FD);
-    background-size: 220% 220%;
-    animation: text-shift 8s ease-in-out infinite;
+    background: linear-gradient(to right, #ffffff, #00f0ff, #ffd700);
+    background-size: 200% auto;
+    animation: shine 5s linear infinite;
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
@@ -247,6 +250,12 @@ html {
   }
 }
 
+@keyframes shine {
+  to {
+    background-position: 200% center;
+  }
+}
+
 @keyframes hero-enter {
   to {
     opacity: 1;
@@ -285,33 +294,34 @@ html {
   }
 }
 
-@keyframes page-gradient-shift {
+@keyframes orb-pulse {
   0% {
-    background-position: 0% 50%;
-  }
-
-  50% {
-    background-position: 100% 50%;
+    opacity: 0.45;
+    transform: scale(1);
   }
 
   100% {
-    background-position: 0% 50%;
+    opacity: 0.95;
+    transform: scale(1.18);
   }
 }
 
-@keyframes gradient-orbit {
+@keyframes orb-drift-cyan {
   0% {
-    transform: translate3d(-2%, -1%, 0) scale(1);
-    opacity: 0.75;
-  }
-
-  50% {
-    transform: translate3d(2%, 1.5%, 0) scale(1.08);
-    opacity: 1;
+    transform: translate3d(0, 0, 0);
   }
 
   100% {
-    transform: translate3d(-2%, -1%, 0) scale(1);
-    opacity: 0.75;
+    transform: translate3d(36px, -26px, 0);
+  }
+}
+
+@keyframes orb-drift-gold {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+
+  100% {
+    transform: translate3d(-34px, 24px, 0);
   }
 }
