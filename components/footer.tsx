@@ -90,7 +90,7 @@ export function Footer() {
             </p>
             <a
               href="#case-inquiry"
-              className="inline-flex w-fit items-center justify-center rounded-lg bg-brand-primary px-6 py-3 text-sm font-semibold text-white shadow-[0_0_15px_rgba(37,99,235,0.3)] transition-all hover:bg-brand-light hover:shadow-[0_0_20px_rgba(96,165,250,0.5)]"
+              className="inline-flex w-fit items-center justify-center rounded-md bg-brand-primary px-6 py-3 text-sm font-semibold text-slate-950 transition-colors hover:bg-brand-dark focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-white/25 active:opacity-95"
             >
               Contact Us Securely
             </a>

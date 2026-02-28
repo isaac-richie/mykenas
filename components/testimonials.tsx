@@ -254,10 +254,10 @@ export function Testimonials() {
                     <div className="flex justify-end pt-2">
                       <button
                         type="submit"
-                        className="group/btn inline-flex items-center gap-2 rounded-lg border border-brand-light/25 bg-gradient-to-r from-brand-primary via-blue-500 to-brand-light px-8 py-3 font-semibold uppercase tracking-wider text-white shadow-[0_12px_30px_rgba(37,99,235,0.4)] transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_16px_36px_rgba(96,165,250,0.5)]"
+                        className="inline-flex items-center gap-2 rounded-md bg-brand-primary px-8 py-3 font-semibold uppercase tracking-[0.08em] text-slate-950 transition-colors hover:bg-brand-dark focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-white/25 active:opacity-95"
                       >
                         Send
-                        <ArrowRight className="h-4 w-4 transition-transform group-hover/btn:translate-x-1" />
+                        <ArrowRight className="h-4 w-4" />
                       </button>
                     </div>
                   </form>

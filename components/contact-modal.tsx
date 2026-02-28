@@ -217,10 +217,10 @@ export function ContactModal({ isOpen, onClose }: ContactModalProps) {
               <div className="flex justify-end">
                 <button
                   type="submit"
-                  className="group/btn inline-flex items-center gap-2 rounded-lg bg-brand-primary px-8 py-3 font-semibold uppercase tracking-wider text-white shadow-[0_0_15px_rgba(37,99,235,0.3)] transition-all hover:bg-brand-light hover:shadow-[0_0_20px_rgba(96,165,250,0.5)]"
+                  className="inline-flex items-center gap-2 rounded-md bg-brand-primary px-8 py-3 font-semibold uppercase tracking-[0.08em] text-slate-950 transition-colors hover:bg-brand-dark focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-white/25 active:opacity-95"
                 >
                   Send
-                  <ArrowRight className="h-4 w-4 transition-transform group-hover/btn:translate-x-1" />
+                  <ArrowRight className="h-4 w-4" />
                 </button>
               </div>
             </form>
