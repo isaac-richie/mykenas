@@ -48,7 +48,7 @@ export function Hero() {
             <div className="hero-enter flex flex-wrap items-center gap-4 [animation-delay:420ms]">
               <a
                 href="#case-inquiry"
-                className="group inline-flex items-center gap-2 rounded-lg bg-brand-primary px-6 py-3 font-medium text-slate-950 transition-colors hover:bg-brand-dark focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary/45 active:translate-y-px"
+                className="group inline-flex items-center gap-2 rounded-lg bg-brand-primary px-6 py-3 font-medium text-slate-950 shadow-[0_5px_12px_rgba(0,0,0,0.2)] transition-colors hover:bg-brand-dark focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-white/25 active:translate-y-px active:opacity-95"
               >
                 Contact Team
                 <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />

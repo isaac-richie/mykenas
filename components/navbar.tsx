@@ -18,8 +18,11 @@ export function Navbar() {
     <nav className="fixed top-0 left-0 right-0 z-50 border-b border-glass-border bg-background/80 backdrop-blur-xl">
       <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 md:grid md:grid-cols-[auto_1fr_auto] md:gap-8">
         {/* Logo */}
-        <a href="#" className="flex items-center gap-2">
-          <span className="font-serif text-lg font-bold tracking-wider text-white">
+        <a href="#" className="group flex items-center gap-2.5">
+          <span className="inline-flex h-5 w-5 items-center justify-center rounded-md border border-brand-primary/45 bg-brand-primary/15">
+            <span className="h-1.5 w-1.5 rounded-full bg-brand-light" />
+          </span>
+          <span className="font-serif text-xl font-bold tracking-tight text-white transition-colors group-hover:text-brand-light">
             Mykenas
           </span>
         </a>
@@ -39,7 +42,7 @@ export function Navbar() {
 
         <a
           href="#case-inquiry"
-          className="hidden rounded-lg bg-brand-primary px-6 py-2.5 text-sm font-semibold text-white shadow-[0_8px_18px_rgba(0,0,0,0.26)] transition-all hover:bg-brand-light focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary/45 active:translate-y-px active:shadow-[0_4px_10px_rgba(0,0,0,0.22)] md:inline-flex"
+          className="hidden rounded-lg bg-brand-primary px-6 py-2.5 text-sm font-semibold text-slate-950 shadow-[0_5px_12px_rgba(0,0,0,0.2)] transition-colors hover:bg-brand-light focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-white/25 active:translate-y-px active:opacity-95 md:inline-flex"
         >
           Contact Team
         </a>
@@ -71,7 +74,7 @@ export function Navbar() {
             <a
               href="#case-inquiry"
               onClick={() => setMobileOpen(false)}
-              className="mt-2 w-full rounded-lg bg-brand-primary px-5 py-2.5 text-center text-sm font-semibold text-white shadow-[0_8px_18px_rgba(0,0,0,0.26)] transition-all hover:bg-brand-light focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary/45 active:translate-y-px active:shadow-[0_4px_10px_rgba(0,0,0,0.22)]"
+              className="mt-2 inline-flex h-10 w-full items-center justify-center rounded-md bg-brand-primary px-4 text-sm font-medium text-slate-950 shadow-[0_5px_12px_rgba(0,0,0,0.2)] transition-colors hover:bg-brand-light focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-white/25 active:translate-y-px active:opacity-95"
             >
               Contact Team
             </a>
