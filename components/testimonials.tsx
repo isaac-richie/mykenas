@@ -54,9 +54,12 @@ export function Testimonials() {
   const [phone, setPhone] = useState("")
   const [summary, setSummary] = useState("")
   const [submitted, setSubmitted] = useState(false)
+  const inquirySubmissionEnabled = false
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
+    if (!inquirySubmissionEnabled) return
+
     if (fullName.trim() && email.trim()) {
       setSubmitted(true)
       setFullName("")
@@ -254,7 +257,8 @@ export function Testimonials() {
                     <div className="flex justify-end pt-2">
                       <button
                         type="submit"
-                        className="inline-flex items-center gap-2 rounded-md bg-brand-primary px-8 py-3 font-semibold uppercase tracking-[0.08em] text-slate-950 transition-colors hover:bg-brand-dark focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-white/25 active:opacity-95"
+                        disabled={!inquirySubmissionEnabled}
+                        className="inline-flex items-center gap-2 rounded-md border border-glass-border bg-white/5 px-8 py-3 font-semibold uppercase tracking-[0.08em] text-white/55 transition-colors disabled:cursor-not-allowed disabled:opacity-90"
                       >
                         Send
                         <ArrowRight className="h-4 w-4" />

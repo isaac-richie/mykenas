@@ -6,7 +6,6 @@ import { Forensics } from "@/components/forensics"
 import { WalletsMarquee } from "@/components/wallets-marquee"
 import { OfficialPartners } from "@/components/official-partners"
 import { Testimonials } from "@/components/testimonials"
-import { FAQ } from "@/components/faq"
 import { Footer } from "@/components/footer"
 
 export default function Page() {
@@ -25,7 +24,6 @@ export default function Page() {
         <Forensics />
         <OfficialPartners />
         <Testimonials />
-        <FAQ />
         <Footer />
       </div>
     </main>
