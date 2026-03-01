@@ -1,24 +1,43 @@
 export function Footer() {
   return (
-    <footer id="contact" className="border-t border-glass-border bg-secondary/30 py-16">
-      <div className="mx-auto max-w-7xl px-6">
-        <div className="grid gap-12 md:grid-cols-3">
+    <footer id="contact" className="relative border-t border-glass-border bg-background/80 py-16">
+      <div className="pointer-events-none absolute inset-0 overflow-hidden">
+        <div className="absolute -left-20 top-0 h-56 w-56 rounded-full bg-brand-primary/10 blur-3xl" />
+        <div className="absolute -bottom-16 right-0 h-56 w-56 rounded-full bg-brand-light/10 blur-3xl" />
+      </div>
+
+      <div className="relative mx-auto max-w-7xl px-6">
+        <div className="grid gap-12 md:grid-cols-[1.1fr_1fr_1fr]">
           {/* Brand */}
           <div>
-            <div className="flex items-center gap-2">
-              <span className="font-serif text-lg font-bold tracking-wider text-white">
+            <div className="flex items-center gap-2.5">
+              <span className="inline-flex h-5 w-5 items-center justify-center rounded-md border border-brand-primary/45 bg-brand-primary/15">
+                <span className="h-1.5 w-1.5 rounded-full bg-brand-light" />
+              </span>
+              <span className="font-serif text-xl font-bold tracking-tight text-white">
                 Mykenas
               </span>
             </div>
-            <p className="mt-4 max-w-xs text-sm leading-relaxed text-muted-foreground">
+            <p className="mt-4 max-w-sm text-sm leading-relaxed text-muted-foreground">
               The world&apos;s premier digital asset recovery and blockchain
               forensics agency. Operating under strict NDA with military-grade
               security protocols.
             </p>
+            <div className="mt-6 flex flex-wrap gap-2">
+              <span className="rounded-full border border-glass-border bg-glass px-3 py-1 text-[11px] font-semibold text-foreground/75">
+                Encrypted Intake
+              </span>
+              <span className="rounded-full border border-glass-border bg-glass px-3 py-1 text-[11px] font-semibold text-foreground/75">
+                NDA First
+              </span>
+              <span className="rounded-full border border-glass-border bg-glass px-3 py-1 text-[11px] font-semibold text-foreground/75">
+                24/7 Response
+              </span>
+            </div>
           </div>
 
           {/* Links */}
-          <div className="grid grid-cols-2 gap-8">
+          <div className="grid grid-cols-2 gap-8 md:pt-1">
             <div>
               <h4 className="mb-4 text-xs font-semibold tracking-widest text-white uppercase">
                 Services
@@ -80,7 +99,7 @@ export function Footer() {
           </div>
 
           {/* CTA */}
-          <div id="marketing" className="flex flex-col gap-4">
+          <div id="marketing" className="flex flex-col gap-4 md:pt-1">
             <h4 className="text-xs font-semibold tracking-widest text-white uppercase">
               Confidential Inquiry
             </h4>
@@ -94,6 +113,9 @@ export function Footer() {
             >
               Contact Us Securely
             </a>
+            <p className="text-[11px] text-muted-foreground/80">
+              Typical first response within 24 hours.
+            </p>
           </div>
         </div>
 

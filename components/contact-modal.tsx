@@ -35,7 +35,8 @@ export function ContactModal({ isOpen, onClose }: ContactModalProps) {
   const [phone, setPhone] = useState("")
   const [summary, setSummary] = useState("")
   const [submitted, setSubmitted] = useState(false)
-  const inquirySubmissionEnabled = false
+  const [submitting, setSubmitting] = useState(false)
+  const [submitError, setSubmitError] = useState("")
   const [mounted, setMounted] = useState(false)
   const [visible, setVisible] = useState(false)
 
@@ -59,20 +60,50 @@ export function ContactModal({ isOpen, onClose }: ContactModalProps) {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
-    if (!inquirySubmissionEnabled) return
+    if (submitting) return
 
-    if (fullName.trim() && email.trim()) {
-      setSubmitted(true)
-      setFullName("")
-      setCountry("")
-      setEmail("")
-      setPhone("")
-      setSummary("")
-      setTimeout(() => {
-        setSubmitted(false)
-        onClose()
-      }, 2500)
+    const payload = {
+      fullName: fullName.trim(),
+      country: country.trim(),
+      email: email.trim(),
+      phone: phone.trim(),
+      summary: summary.trim(),
+      source: "modal",
     }
+
+    setSubmitting(true)
+    setSubmitError("")
+
+    void fetch("/api/inquiries", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(payload),
+    })
+      .then(async (res) => {
+        if (!res.ok) {
+          const data = await res.json().catch(() => ({}))
+          throw new Error(data?.error || "Submission failed")
+        }
+
+        setSubmitted(true)
+        setFullName("")
+        setCountry("")
+        setEmail("")
+        setPhone("")
+        setSummary("")
+        setTimeout(() => {
+          setSubmitted(false)
+          onClose()
+        }, 2500)
+      })
+      .catch((err: unknown) => {
+        const message =
+          err instanceof Error ? err.message : "Unable to submit inquiry right now."
+        setSubmitError(message)
+      })
+      .finally(() => {
+        setSubmitting(false)
+      })
   }
 
   if (!mounted) return null
@@ -220,14 +251,18 @@ export function ContactModal({ isOpen, onClose }: ContactModalProps) {
               <div className="flex justify-end">
                 <button
                   type="submit"
-                  disabled={!inquirySubmissionEnabled}
-                  className="inline-flex items-center gap-2 rounded-md border border-glass-border bg-white/5 px-8 py-3 font-semibold uppercase tracking-[0.08em] text-white/55 transition-colors disabled:cursor-not-allowed disabled:opacity-90"
+                  disabled={submitting}
+                  className="inline-flex items-center gap-2 rounded-md bg-brand-primary px-8 py-3 font-semibold uppercase tracking-[0.08em] text-slate-950 transition-colors hover:bg-brand-dark disabled:cursor-not-allowed disabled:opacity-70"
                 >
-                  Send
+                  {submitting ? "Sending..." : "Send"}
                   <ArrowRight className="h-4 w-4" />
                 </button>
               </div>
             </form>
+
+            {submitError && (
+              <p className="mt-3 text-xs text-red-300">{submitError}</p>
+            )}
 
             <p className="mt-4 text-[10px] text-muted-foreground/60">
               All communications are end-to-end encrypted and protected under mutual NDA.

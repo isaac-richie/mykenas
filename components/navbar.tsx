@@ -8,6 +8,7 @@ const navLinks = [
   { label: "Forensics", href: "#forensics" },
   { label: "Partners", href: "#partners" },
   { label: "Testimonials", href: "#testimonials" },
+  { label: "FAQ", href: "#faq" },
 ]
 
 export function Navbar() {
